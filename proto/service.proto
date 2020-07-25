@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package kzmake.mmockspawner.v1;
+
+option go_package = "github.com/kzmake/mmock-spawner/proto";
+
+import "proto/entity.proto";
+
+service ProcessService {
+  rpc Spawn(SpawnRequest) returns (SpawnResponse);
+  rpc List(ListRequest) returns (ListResponse);
+  rpc Kill(KillRequest) returns (KillResponse);
+  rpc KillAll(KillAllRequest) returns (KillAllResponse);
+}
+
+message SpawnRequest {
+  repeated string args = 1;
+}
+
+message SpawnResponse {
+  Process result = 1;
+}
+
+message ListRequest {}
+
+message ListResponse {
+  repeated Process results = 1;
+}
+
+message KillRequest {
+  int32 pid = 1;
+}
+
+message KillResponse {
+  Process result = 1;
+}
+
+message KillAllRequest {
+  int32 pid = 1;
+}
+
+message KillAllResponse {
+  repeated Process results = 1;
+}

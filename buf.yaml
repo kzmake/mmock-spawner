@@ -1,0 +1,20 @@
+build:
+  roots:
+    - .
+  excludes:
+    - vendor
+lint:
+  use:
+    - DEFAULT
+    - FILE_LOWER_SNAKE_CASE
+  except:
+    - PACKAGE_DIRECTORY_MATCH
+  ignore:
+    - third_party
+    - vendor
+breaking:
+  use:
+    - FILE
+  ignore:
+    - third_party
+    - vendor
